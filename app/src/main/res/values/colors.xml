@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <!-- Act 1-->
+    <color name="bgrActivity1">#FFF7D9</color>
+    <color name="hi">#38d13e</color>
+    <color name="yourName">#d1d138</color>
+    <color name="next">#d15a38</color>
+    <color name="inputName">#5a5abf</color>
+
+    <!-- Act 2-->
+    <color name="bgrActivity2">#FFF7D9</color>
+
 </resources>

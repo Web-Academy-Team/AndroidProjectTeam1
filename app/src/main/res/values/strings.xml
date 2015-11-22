@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">AndroidProjectTeam</string>
+
+    <!-- Act 1-->
+    <string name="hi">Привет!</string>
+    <string name="yourName">Как тебя зовут?</string>
+    <string name="yourNameHint">введи имя</string>
+    <string name="next">"ДАЛЕЕ >"</string>
+
+    <!-- Act 2 -->
 </resources>

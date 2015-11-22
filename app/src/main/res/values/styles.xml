@@ -1,3 +1,14 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar"/>
+
+    <!-- Act 2 -->
+    <style name="AlphabetButtons">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:onClick">alphabetButtonClick</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
 </resources>
