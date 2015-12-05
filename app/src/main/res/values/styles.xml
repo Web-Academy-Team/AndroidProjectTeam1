@@ -11,4 +11,20 @@
         <item name="android:scaleType">centerInside</item>
     </style>
 
+    <!-- Act 3 -->
+    <style name="AlpChar">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:scaleType">centerInside</item>
+        <item name="android:onClick">charClick</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+    </style>
+    <style name="FindWordButton">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">200dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
 </resources>

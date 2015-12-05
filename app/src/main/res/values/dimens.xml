@@ -9,5 +9,7 @@
     <dimen name="inputName">40sp</dimen>
     <dimen name="inputNameMargin">20dp</dimen>
 
-    <!-- Act 2-->
+    <!-- Act 3-->
+    <dimen name="word">25sp</dimen>
+    <dimen name="wordMargin">20dp</dimen>
 </resources>

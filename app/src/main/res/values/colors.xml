@@ -13,4 +13,7 @@
     <!-- Act 2-->
     <color name="bgrActivity2">#FFF7D9</color>
 
+    <!-- Act 3-->
+    <color name="bgrActivity3">#FFF7D9</color>
+    <color name="word">#8DB42D</color>
 </resources>

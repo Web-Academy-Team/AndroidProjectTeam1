@@ -1,15 +1,18 @@
 package com.webacademy.androidprojectteam;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class Activity_2 extends AppCompatActivity {
     public static final String KEY_ALPHABET_BUTTON = "com.webacademy.alphabet.KEY_ALPHABET_BUTTON";
     private Intent intent;
-    private String intentValue = "";
     private String userName = "";
+    private String intentValue = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
