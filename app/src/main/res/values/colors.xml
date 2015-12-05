@@ -3,10 +3,12 @@
 
     <!-- Act 1-->
     <color name="bgrActivity1">#FFF7D9</color>
-    <color name="hi">#38d13e</color>
-    <color name="yourName">#d1d138</color>
+    <color name="hi">#887712</color>
+    <color name="yourName">#D1BC38</color>
     <color name="next">#d15a38</color>
-    <color name="inputName">#5a5abf</color>
+    <color name="nextShadow">#882D12</color>
+    <color name="inputName">#324488</color>
+    <color name="inputNameHint">#7F8EC3</color>
 
     <!-- Act 2-->
     <color name="bgrActivity2">#FFF7D9</color>
