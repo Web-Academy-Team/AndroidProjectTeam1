@@ -56,5 +56,6 @@
         android:layout_height="@dimen/ball"
         android:src="@drawable/ball"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:onClick="onBallClick"/>
 </RelativeLayout>
