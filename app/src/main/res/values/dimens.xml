@@ -8,6 +8,7 @@
     <dimen name="next">40sp</dimen>
     <dimen name="inputName">40sp</dimen>
     <dimen name="inputNameMargin">20dp</dimen>
+    <dimen name="ball">150dp</dimen>
 
     <!-- Act 3-->
     <dimen name="word">25sp</dimen>

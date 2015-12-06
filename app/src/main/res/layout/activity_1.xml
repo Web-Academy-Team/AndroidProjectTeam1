@@ -50,5 +50,11 @@
         android:id="@+id/next"
         android:onClick="goToActivity2"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true" />
+    <ImageView
+        android:layout_width="@dimen/ball"
+        android:layout_height="@dimen/ball"
+        android:src="@drawable/ball"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"/>
 </RelativeLayout>
