@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -214,6 +215,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
 
         }
 
+        Toast.makeText(this, answer, Toast.LENGTH_SHORT).show();
         return answer;
     }
 
