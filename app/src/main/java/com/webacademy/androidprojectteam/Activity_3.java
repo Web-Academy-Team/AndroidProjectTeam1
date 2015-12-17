@@ -23,6 +23,9 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
 
     public int Letter;
     public ArrayList<Variant> variants;
+    public int countVariants = 4;
+    public String[] imgLetter = new String[countVariants];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,27 +185,53 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
                 soundId = sp.load(this, R.raw.ya, 1);
                 break;
         }
-        setVariants(character, Letter, 3, 1);       // (character, id.drawable.char, count variants, level)
+        setVariants(character, Letter, 1);       // (character, id.drawable.char, level)
     }
 
-    public void charClick(View view){
+    public String charClick(View view){
+
+        String answer = "false";
+
         sp.play(soundId, 1, 1, 0, 0, 1);
+        switch (view.getId()){
+            case R.id.img1:
+                if(character.equals(imgLetter[1])){
+                    answer = "true";
+                }
+                break;
+
+            case R.id.img2:
+                if(character.equals(imgLetter[2])){
+                    answer = "true";
+                }
+                break;
+
+            case R.id.img3:
+                if(character.equals(imgLetter[3])){
+                    answer = "true";
+                }
+                break;
+
+        }
+
+        return answer;
     }
 
     @Override
     public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
     }
 
-    public void setVariants(String letter, int buk, int count, int level) {
+    public void setVariants(String letter, int buk, int level) {
 
         ((ImageView) findViewById(R.id.alpChar)).setImageResource(buk);
         ((TextView) findViewById(R.id.findWord)).setText(userName + ", угадай слово");
 
-        int[] imgPosition = new int[4];
+        int[] imgPosition = new int[countVariants];
         imgPosition[0] = 0;
         imgPosition[1] = R.id.img1;
         imgPosition[2] = R.id.img2;
         imgPosition[3] = R.id.img3;
+
 
         int pos = imgPosition.length-1, cnt = 0;
 
@@ -210,6 +239,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
 
             if((letter.equals(variants.get(i).Letter)) && (level != 0)){
                 ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
+                imgLetter[pos] = variants.get(i).Letter;
                 variants.get(i).incVariantCount(variants.size());
                 level--;
                 pos--;
@@ -219,6 +249,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
             }
             if(!(letter.equals(variants.get(i).Letter)) && (pos > level)) {
                 ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
+                imgLetter[pos] = variants.get(i).Letter;
                 pos--;
                 if (pos == 0) {
                     return;

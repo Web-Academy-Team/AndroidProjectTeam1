@@ -23,16 +23,19 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/wordMargin"
         android:id="@+id/findWord"/>
-    <ImageView
+    <ImageButton
         style="@style/FindWordButton"
         android:layout_below="@+id/findWord"
+        android:onClick="charClick"
         android:id="@+id/img1"/>
-    <ImageView
+    <ImageButton
         style="@style/FindWordButton"
         android:layout_below="@+id/img1"
+        android:onClick="charClick"
         android:id="@+id/img2"/>
-    <ImageView
+    <ImageButton
         style="@style/FindWordButton"
         android:layout_below="@+id/img2"
+        android:onClick="charClick"
         android:id="@+id/img3"/>
 </RelativeLayout>
