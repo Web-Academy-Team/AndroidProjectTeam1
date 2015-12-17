@@ -11,36 +11,35 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import static com.webacademy.androidprojectteam.R.drawable.a_button;
 
 public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCompleteListener{
     private String character = "";
     private String userName = "";
-    private ImageView alphabetChar;
-    private ImageView img1;
-    private ImageView img2;
-    private ImageView img3;
     private SoundPool sp;
     private int soundId;
+
+    public int Letter;
+    public ArrayList<Variant> variants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
-        TextView findWord = (TextView) findViewById(R.id.findWord);
-        alphabetChar = (ImageView) findViewById(R.id.alpChar);
-        img1 = (ImageView) findViewById(R.id.img1);
-        img2 = (ImageView) findViewById(R.id.img2);
-        img3 = (ImageView) findViewById(R.id.img3);
+        variants = new ArrayList<>();
+        variants.add(new Variant("A", "pineapple", R.drawable.pineapple, 0));   // 0
+        variants.add(new Variant("A", "apricot", R.drawable.apricot, 0));       // 1
+        variants.add(new Variant("B", "squirrel", R.drawable.squirrel, 0));     // 2
+
 
         Intent intent = getIntent();
         if (intent != null){
             userName = intent.getStringExtra(Activity_1.USER_NAME);
             character = intent.getStringExtra(Activity_2.KEY_ALPHABET_BUTTON);
         }
-        String findWordText = userName + ", угадай слово";
-        findWord.setText(findWordText);
 
         sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
         sp.setOnLoadCompleteListener(this);
@@ -51,141 +50,139 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
     private void choiseChar(String character){
         switch (character){
             case "A":
-                alphabetChar.setImageResource(R.drawable.a_button);
-                img1.setImageResource(R.drawable.pineapple);
-                img2.setImageResource(R.drawable.apricot);
-                img3.setImageResource(R.drawable.squirrel);
+                Letter = R.drawable.a_button;
                 soundId = sp.load(this, R.raw.a, 1);
                 break;
             case "B":
-                alphabetChar.setImageResource(R.drawable.b_button);
+                Letter = R.drawable.b_button;
                 soundId = sp.load(this, R.raw.b, 1);
                 break;
             case "V":
-                alphabetChar.setImageResource(R.drawable.v_button);
+                Letter = R.drawable.v_button;
                 soundId = sp.load(this, R.raw.v, 1);
                 break;
             case "G":
-                alphabetChar.setImageResource(R.drawable.g_button);
+                Letter = R.drawable.g_button;
                 soundId = sp.load(this, R.raw.g, 1);
                 break;
             case "D":
-                alphabetChar.setImageResource(R.drawable.d_button);
+                Letter = R.drawable.d_button;
                 soundId = sp.load(this, R.raw.d, 1);
                 break;
             case "E":
-                alphabetChar.setImageResource(R.drawable.e_button);
+                Letter = R.drawable.e_button;
                 soundId = sp.load(this, R.raw.e, 1);
                 break;
             case "Ey":
-                alphabetChar.setImageResource(R.drawable.ey_button);
+                Letter = R.drawable.ey_button;
                 soundId = sp.load(this, R.raw.ey, 1);
                 break;
             case "Zh":
-                alphabetChar.setImageResource(R.drawable.zh_button);
+                Letter = R.drawable.zh_button;
                 soundId = sp.load(this, R.raw.zh, 1);
                 break;
             case "Z":
-                alphabetChar.setImageResource(R.drawable.z_button);
+                Letter = R.drawable.z_button;
                 soundId = sp.load(this, R.raw.z, 1);
                 break;
             case "I":
-                alphabetChar.setImageResource(R.drawable.i_button);
+                Letter = R.drawable.i_button;
                 soundId = sp.load(this, R.raw.i, 1);
                 break;
             case "Iy":
-                alphabetChar.setImageResource(R.drawable.iy_button);
+                Letter = R.drawable.iy_button;
                 soundId = sp.load(this, R.raw.iy, 1);
                 break;
             case "K":
-                alphabetChar.setImageResource(R.drawable.k_button);
+                Letter = R.drawable.k_button;
                 soundId = sp.load(this, R.raw.k, 1);
                 break;
             case "L":
-                alphabetChar.setImageResource(R.drawable.l_button);
+                Letter = R.drawable.l_button;
                 soundId = sp.load(this, R.raw.l, 1);
                 break;
             case "M":
-                alphabetChar.setImageResource(R.drawable.m_button);
+                Letter = R.drawable.m_button;
                 soundId = sp.load(this, R.raw.m, 1);
                 break;
             case "N":
-                alphabetChar.setImageResource(R.drawable.n_button);
+                Letter = R.drawable.n_button;
                 soundId = sp.load(this, R.raw.n, 1);
                 break;
             case "O":
-                alphabetChar.setImageResource(R.drawable.o_button);
+                Letter = R.drawable.o_button;
                 soundId = sp.load(this, R.raw.o, 1);
                 break;
             case "P":
-                alphabetChar.setImageResource(R.drawable.p_button);
+                Letter = R.drawable.p_button;
                 soundId = sp.load(this, R.raw.p, 1);
                 break;
             case "R":
-                alphabetChar.setImageResource(R.drawable.r_button);
+                Letter = R.drawable.r_button;
                 soundId = sp.load(this, R.raw.r, 1);
                 break;
             case "S":
-                alphabetChar.setImageResource(R.drawable.s_button);
+                Letter = R.drawable.s_button;
                 soundId = sp.load(this, R.raw.s, 1);
                 break;
             case "T":
-                alphabetChar.setImageResource(R.drawable.t_button);
+                Letter = R.drawable.t_button;
                 soundId = sp.load(this, R.raw.t, 1);
                 break;
             case "U":
-                alphabetChar.setImageResource(R.drawable.u_button);
+                Letter = R.drawable.u_button;
                 soundId = sp.load(this, R.raw.u, 1);
                 break;
             case "F":
-                alphabetChar.setImageResource(R.drawable.f_button);
+                Letter = R.drawable.f_button;
                 soundId = sp.load(this, R.raw.f, 1);
                 break;
             case "H":
-                alphabetChar.setImageResource(R.drawable.h_button);
+                Letter = R.drawable.h_button;
                 soundId = sp.load(this, R.raw.h, 1);
                 break;
             case "C":
-                alphabetChar.setImageResource(R.drawable.c_button);
+                Letter = R.drawable.c_button;
                 soundId = sp.load(this, R.raw.c, 1);
                 break;
             case "Ch":
-                alphabetChar.setImageResource(R.drawable.ch_button);
+                Letter = R.drawable.ch_button;
                 soundId = sp.load(this, R.raw.ch, 1);
                 break;
             case "Sh":
-                alphabetChar.setImageResource(R.drawable.sh_button);
+                Letter = R.drawable.sh_button;
                 soundId = sp.load(this, R.raw.sh, 1);
                 break;
             case "Shy":
-                alphabetChar.setImageResource(R.drawable.shy_button);
+                Letter = R.drawable.shy_button;
                 soundId = sp.load(this, R.raw.shy, 1);
                 break;
             case "Zt":
-                alphabetChar.setImageResource(R.drawable.zt_button);
+                Letter = R.drawable.zt_button;
                 soundId = sp.load(this, R.raw.zt, 1);
                 break;
             case "Uy":
-                alphabetChar.setImageResource(R.drawable.uy_button);
+                Letter = R.drawable.uy_button;
                 soundId = sp.load(this, R.raw.uy, 1);
                 break;
             case "Zm":
-                alphabetChar.setImageResource(R.drawable.zm_button);
+                Letter = R.drawable.zm_button;
                 soundId = sp.load(this, R.raw.zm, 1);
                 break;
             case "Ee":
-                alphabetChar.setImageResource(R.drawable.ee_button);
+                Letter = R.drawable.ee_button;
                 soundId = sp.load(this, R.raw.ee, 1);
                 break;
             case "Yy":
-                alphabetChar.setImageResource(R.drawable.yy_button);
+                Letter = R.drawable.yy_button;
                 soundId = sp.load(this, R.raw.yy, 1);
                 break;
             case "Ya":
-                alphabetChar.setImageResource(R.drawable.ya_button);
+                Letter = R.drawable.ya_button;
                 soundId = sp.load(this, R.raw.ya, 1);
                 break;
         }
+        setVariants(character, Letter, 3, 1);       // (character, id.drawable.char, count variants, level)
     }
 
     public void charClick(View view){
@@ -194,5 +191,41 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
 
     @Override
     public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
+    }
+
+    public void setVariants(String letter, int buk, int count, int level) {
+
+        ((ImageView) findViewById(R.id.alpChar)).setImageResource(buk);
+        ((TextView) findViewById(R.id.findWord)).setText(userName + ", угадай слово");
+
+        int[] imgPosition = new int[4];
+        imgPosition[0] = 0;
+        imgPosition[1] = R.id.img1;
+        imgPosition[2] = R.id.img2;
+        imgPosition[3] = R.id.img3;
+
+        int pos = imgPosition.length-1, cnt = 0;
+
+        for(int i = 0; i < variants.size(); i++) {
+
+            if((letter.equals(variants.get(i).Letter)) && (level != 0)){
+                ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
+                variants.get(i).incVariantCount(variants.size());
+                level--;
+                pos--;
+                if(pos == 0){
+                    return;
+                }
+            }
+            if(!(letter.equals(variants.get(i).Letter)) && (pos > level)) {
+                ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
+                pos--;
+                if (pos == 0) {
+                    return;
+                }
+
+            }
+
+        }
     }
 }
