@@ -252,7 +252,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
     public String charClick(View v){
 
         String answer = "false";
-        String toastString = "Будь внимательней,\n    подумай еще...\n\n";
+        String toastString = "Будь внимательней,\n     подумай еще...\n\n";
 
         sp.play(soundId, 1, 1, 0, 0, 1);
         switch (v.getId()){
