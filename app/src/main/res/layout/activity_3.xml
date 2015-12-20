@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -11,31 +12,47 @@
     tools:context="com.webacademy.androidprojectteam.Activity_3"
     android:background="@color/bgrActivity3">
 
-    <ImageView
-        style="@style/AlpChar"
-        android:id="@+id/alpChar"/>
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/word"
-        android:textColor="@color/word"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="@dimen/wordMargin"
-        android:id="@+id/findWord"/>
-    <ImageButton
-        style="@style/FindWordButton"
-        android:layout_below="@+id/findWord"
-        android:onClick="charClick"
-        android:id="@+id/img1"/>
-    <ImageButton
-        style="@style/FindWordButton"
-        android:layout_below="@+id/img1"
-        android:onClick="charClick"
-        android:id="@+id/img2"/>
-    <ImageButton
-        style="@style/FindWordButton"
-        android:layout_below="@+id/img2"
-        android:onClick="charClick"
-        android:id="@+id/img3"/>
-</RelativeLayout>
+        android:layout_height="wrap_content">
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+        <ImageView
+            style="@style/AlpChar"
+            android:id="@+id/alpChar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/word"
+            android:textColor="@color/word"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/wordMargin"
+            android:id="@+id/findWord"/>
+        </LinearLayout>
+        <ImageView
+            style="@style/FindWordButton"
+            android:layout_below="@+id/findWord"
+            android:onClick="charClick"
+            android:id="@+id/img1"/>
+
+        <ImageView
+            style="@style/FindWordButton"
+            android:layout_below="@+id/img1"
+            android:onClick="charClick"
+            android:id="@+id/img2"/>
+
+        <ImageView
+            style="@style/FindWordButton"
+            android:layout_below="@+id/img2"
+            android:onClick="charClick"
+            android:id="@+id/img3"/>
+        </TableLayout>
+    </ScrollView>
+</LinearLayout>

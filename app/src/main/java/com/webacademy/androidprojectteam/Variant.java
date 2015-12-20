@@ -10,7 +10,6 @@ import android.widget.ImageView;
 public class Variant implements Parcelable{
 
     public String Letter;
-    public String Name;
     public int Img;
     public int Count;
 
@@ -26,9 +25,8 @@ public class Variant implements Parcelable{
 
     }
 
-    public Variant(String letter, String name, int img, int count){
+    public Variant(String letter, int img, int count){
         this.Letter = letter;
-        this.Name = name;
         this.Img = img;
         this.Count = count;
     }
@@ -41,14 +39,12 @@ public class Variant implements Parcelable{
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.Letter);
-        dest.writeString(this.Name);
         dest.writeInt(this.Img);
         dest.writeInt(this.Count);
     }
 
     protected Variant(Parcel in) {
         this.Letter = in.readString();
-        this.Name = in.readString();
         this.Img = in.readInt();
         this.Count = in.readInt();
     }
