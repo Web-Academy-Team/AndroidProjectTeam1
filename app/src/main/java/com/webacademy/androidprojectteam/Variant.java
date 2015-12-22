@@ -9,6 +9,14 @@ import android.widget.ImageView;
  */
 public class Variant implements Parcelable{
 
+    public static final String TABLE_NAME = "Variants";
+
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_LETTER = "Letter";
+    public static final String COLUMN_IMAGE = "Image";
+    public static final String COLUMN_COUNT = "Count";
+
+    public long id;
     public String Letter;
     public int Img;
     public int Count;
@@ -16,7 +24,7 @@ public class Variant implements Parcelable{
     public int incVariantCount(int maxCount){
 
         this.Count++;
-        if(this.Count > maxCount)    this.Count = 0;
+        if(this.Count >= maxCount)    this.Count = 0;
 
         return Count;
     }

@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.media.SoundPool;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,81 +24,23 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
     private String userName = "";
     private SoundPool sp;
     private int soundId;
+    private int countVariant = 1;
 
     public int Letter;
     public ArrayList<Variant> variants;
     public int countVariants = 4;
     public String[] imgLetter = new String[countVariants];
-
+    public DBHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_3);
 
-        variants = new ArrayList<>();
-        variants.add(new Variant("A", R.drawable.pineapple, 0));   // 0
-        variants.add(new Variant("A", R.drawable.apricot, 0));       // 1
-        variants.add(new Variant("B", R.drawable.squirrel, 0));     // 2
-        variants.add(new Variant("B", R.drawable.botinki, 0));
-        variants.add(new Variant("V", R.drawable.vorota, 0));
-        variants.add(new Variant("V", R.drawable.vilka, 0));
-        variants.add(new Variant("G", R.drawable.grusha, 0));
-        variants.add(new Variant("G", R.drawable.galstuk, 0));
-        variants.add(new Variant("D", R.drawable.drova, 0));
-        variants.add(new Variant("D", R.drawable.dyatel, 0));
-        variants.add(new Variant("E", R.drawable.elka, 0));
-        variants.add(new Variant("E", R.drawable.esch, 0));
-        variants.add(new Variant("Ey", R.drawable.esch, 0));
-        variants.add(new Variant("Ey", R.drawable.elka, 0));
-        variants.add(new Variant("Zh", R.drawable.zhuk, 0));
-        variants.add(new Variant("Zh", R.drawable.zhemchug, 0));
-        variants.add(new Variant("Z", R.drawable.zebra, 0));
-        variants.add(new Variant("Z", R.drawable.zont, 0));
-        variants.add(new Variant("I", R.drawable.ikra, 0));
-        variants.add(new Variant("I", R.drawable.izum, 0));
-        variants.add(new Variant("Iy", R.drawable.yogurt, 0));
-        variants.add(new Variant("Iy", R.drawable.yod, 0));
-        variants.add(new Variant("K", R.drawable.kastrula, 0));
-        variants.add(new Variant("K", R.drawable.kolokol, 0));
-        variants.add(new Variant("L", R.drawable.lime, 0));
-        variants.add(new Variant("L", R.drawable.lodka, 0));
-        variants.add(new Variant("M", R.drawable.auto, 0));
-        variants.add(new Variant("M", R.drawable.mylo, 0));
-        variants.add(new Variant("N", R.drawable.noschnizy, 0));
-        variants.add(new Variant("N", R.drawable.nebo, 0));
-        variants.add(new Variant("O", R.drawable.ogurez, 0));
-        variants.add(new Variant("O", R.drawable.window, 0));
-        variants.add(new Variant("P", R.drawable.peper, 0));
-        variants.add(new Variant("P", R.drawable.pylesos, 0));
-        variants.add(new Variant("R", R.drawable.fish, 0));
-        variants.add(new Variant("R", R.drawable.raduga, 0));
-        variants.add(new Variant("S", R.drawable.desk, 0));
-        variants.add(new Variant("S", R.drawable.slon, 0));
-        variants.add(new Variant("T", R.drawable.tort, 0));
-        variants.add(new Variant("T", R.drawable.phone, 0));
-        variants.add(new Variant("U", R.drawable.utug, 0));
-        variants.add(new Variant("U", R.drawable.usy, 0));
-        variants.add(new Variant("F", R.drawable.photo, 0));
-        variants.add(new Variant("F", R.drawable.fonar, 0));
-        variants.add(new Variant("H", R.drawable.brot, 0));
-        variants.add(new Variant("H", R.drawable.kholodilnik, 0));
-        variants.add(new Variant("C", R.drawable.zvetok, 0));
-        variants.add(new Variant("C", R.drawable.zep, 0));
-        variants.add(new Variant("Ch", R.drawable.chesnok, 0));
-        variants.add(new Variant("Ch", R.drawable.tasse, 0));
-        variants.add(new Variant("Sh", R.drawable.shishki, 0));
-        variants.add(new Variant("Sh", R.drawable.shashki, 0));
-        variants.add(new Variant("Shy", R.drawable.shetka, 0));
-        variants.add(new Variant("Shy", R.drawable.shenok, 0));
-        variants.add(new Variant("Zt", R.drawable.zt_button, 0));
-        variants.add(new Variant("Yy", R.drawable.yy_button, 0));
-        variants.add(new Variant("Zm", R.drawable.zm_button, 0));
-        variants.add(new Variant("Ee", R.drawable.ee_button, 0));
-        variants.add(new Variant("Uy", R.drawable.ula, 0));
-        variants.add(new Variant("Uy", R.drawable.ubka, 0));
-        variants.add(new Variant("Ya", R.drawable.apple, 0));
-        variants.add(new Variant("Ya", R.drawable.yakor, 0));
+        helper = new DBHelper(this);
+        variants = helper.getAllVariants();
+
+        Log.d(Activity_1.LOG_TAG, "Array variants - " + String.valueOf(variants.size()));
 
         Intent intent = getIntent();
         if (intent != null){
@@ -109,6 +52,15 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
         sp.setOnLoadCompleteListener(this);
 
         choiseChar(character);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        int cnt;
+
+        cnt = helper.setAllVariants(variants);
     }
 
     private void choiseChar(String character){
@@ -317,7 +269,6 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
             if((letter.equals(variants.get(i).Letter)) && (level != 0)){
                 ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
                 imgLetter[pos] = variants.get(i).Letter;
-                variants.get(i).incVariantCount(variants.size());
                 level--;
                 pos--;
                 if(pos == 0){
@@ -325,11 +276,20 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
                 }
             }
             if(!(letter.equals(variants.get(i).Letter)) && (pos > level)) {
-                ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
-                imgLetter[pos] = variants.get(i).Letter;
-                pos--;
-                if (pos == 0) {
-                    return;
+                if(countVariant > variants.get(i).Count) {
+                    ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
+                    variants.get(i).incVariantCount(variants.size());
+                    imgLetter[pos] = variants.get(i).Letter;
+                    pos--;
+                    if (pos == 0) {
+                        return;
+                    }
+                }
+            }
+            if(i == (variants.size() - 1)){
+                countVariant++;
+                if(countVariant == (variants.size() - 1)) {
+                    countVariant = 1;
                 }
             }
         }

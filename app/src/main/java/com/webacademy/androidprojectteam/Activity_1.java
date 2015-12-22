@@ -15,6 +15,8 @@ public class Activity_1 extends AppCompatActivity implements SoundPool.OnLoadCom
     private SoundPool sp;
     private int soundId;
 
+    public final static String LOG_TAG = "myLog";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
