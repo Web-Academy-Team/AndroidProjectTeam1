@@ -24,7 +24,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
     private String userName = "";
     private SoundPool sp;
     private int soundId;
-    private int countVariant = 1;
+    private int countVariant = 0;
 
     public int Letter;
     public ArrayList<Variant> variants;
@@ -39,6 +39,11 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
 
         helper = new DBHelper(this);
         variants = helper.getAllVariants();
+        for(int i = 0; i < variants.size(); i++){
+            if((variants.get(i).Count > countVariant) && (variants.get(i).Count < variants.size())){
+                countVariant = variants.get(i).Count;
+            }
+        }
 
         Log.d(Activity_1.LOG_TAG, "Array variants - " + String.valueOf(variants.size()));
 
@@ -262,36 +267,33 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
         imgPosition[3] = R.id.img3;
 
 
-        int pos = imgPosition.length-1, cnt = 0;
+        int pos = imgPosition.length-1, in;
 
-        for(int i = 0; i < variants.size(); i++) {
+        for( in = 0; in < variants.size(); in++) {
 
-            if((letter.equals(variants.get(i).Letter)) && (level != 0)){
-                ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
-                imgLetter[pos] = variants.get(i).Letter;
+            if ((letter.equals(variants.get(in).Letter)) && (level != 0)) {
+                ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(in).Img);
+                imgLetter[pos] = variants.get(in).Letter;
                 level--;
                 pos--;
-                if(pos == 0){
+                if (pos == 0) {
                     return;
                 }
             }
-            if(!(letter.equals(variants.get(i).Letter)) && (pos > level)) {
-                if(countVariant > variants.get(i).Count) {
-                    ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(i).Img);
-                    variants.get(i).incVariantCount(variants.size());
-                    imgLetter[pos] = variants.get(i).Letter;
+            if (!(letter.equals(variants.get(in).Letter)) && (pos > level)) {
+                if (countVariant > variants.get(in).Count) {
+                    ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(in).Img);
+                    variants.get(in).incVariantCount(variants.size());
+                    imgLetter[pos] = variants.get(in).Letter;
                     pos--;
                     if (pos == 0) {
                         return;
                     }
                 }
             }
-            if(i == (variants.size() - 1)){
-                countVariant++;
-                if(countVariant == (variants.size() - 1)) {
-                    countVariant = 1;
-                }
-            }
+        }
+        if(pos > 1){
+            countVariant++;
         }
     }
 }
