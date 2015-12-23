@@ -39,8 +39,9 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
 
         helper = new DBHelper(this);
         variants = helper.getAllVariants();
+
         for(int i = 0; i < variants.size(); i++){
-            if((variants.get(i).Count > countVariant) && (variants.get(i).Count < variants.size())){
+            if(variants.get(i).Count != countVariant) {
                 countVariant = variants.get(i).Count;
             }
         }
@@ -56,7 +57,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
         sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
         sp.setOnLoadCompleteListener(this);
 
-        choiseChar(character);
+        choiceChar(character);
     }
 
     @Override
@@ -68,7 +69,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
         cnt = helper.setAllVariants(variants);
     }
 
-    private void choiseChar(String character){
+    private void choiceChar(String character){
         switch (character){
             case "A":
                 Letter = R.drawable.a_button;
@@ -258,7 +259,7 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
     public void setVariants(String letter, int buk, int level) {
 
         ((ImageView) findViewById(R.id.alpChar)).setImageResource(buk);
-        ((TextView) findViewById(R.id.findWord)).setText(userName + ", угадай слово");
+        ((TextView) findViewById(R.id.findWord)).setText("Какое название предмета\nначинается на эту букву?");
 
         int[] imgPosition = new int[countVariants];
         imgPosition[0] = 0;
@@ -277,23 +278,28 @@ public class Activity_3 extends AppCompatActivity implements  SoundPool.OnLoadCo
                 level--;
                 pos--;
                 if (pos == 0) {
-                    return;
+                    break;
                 }
             }
             if (!(letter.equals(variants.get(in).Letter)) && (pos > level)) {
-                if (countVariant > variants.get(in).Count) {
+                if (countVariant >= variants.get(in).Count) {
                     ((ImageView) findViewById(imgPosition[pos])).setImageResource(variants.get(in).Img);
                     variants.get(in).incVariantCount(variants.size());
                     imgLetter[pos] = variants.get(in).Letter;
+                    in++;
                     pos--;
                     if (pos == 0) {
-                        return;
+                        break;
                     }
                 }
             }
         }
         if(pos > 1){
             countVariant++;
+            if(countVariants >= variants.size()){
+                countVariants = 0;
+            }
         }
+        Log.d(Activity_1.LOG_TAG, "countVariant - " + String.valueOf(countVariant));
     }
 }

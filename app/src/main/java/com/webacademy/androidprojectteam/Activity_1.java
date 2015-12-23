@@ -22,7 +22,7 @@ public class Activity_1 extends AppCompatActivity implements SoundPool.OnLoadCom
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
-        inputName = (EditText) findViewById(R.id.inputName);
+//        inputName = (EditText) findViewById(R.id.inputName);
 
         sp = new SoundPool(5, AudioManager.STREAM_MUSIC, 0);
         sp.setOnLoadCompleteListener(this);
@@ -30,12 +30,11 @@ public class Activity_1 extends AppCompatActivity implements SoundPool.OnLoadCom
     }
 
     public void goToActivity2(View view){
-        if (!inputName.getText().toString().isEmpty()){
+
             intent = new Intent(this, Activity_2.class);
-            intent.putExtra(USER_NAME, inputName.getText().toString());
+//            intent.putExtra(USER_NAME, inputName.getText().toString());
             startActivity(intent);
             finish();
-        }
     }
 
     @Override

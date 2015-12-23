@@ -3,8 +3,8 @@
 
     <!-- Act 1-->
     <string name="hi">Привет!</string>
-    <string name="yourName">Как тебя зовут?</string>
-    <string name="yourNameHint">введи имя</string>
+    <string name="yourName">Хочешь учить азбуку?</string>
+    <string name="yourNameHint">Давай поиграем...</string>
     <string name="next">"ДАЛЕЕ >"</string>
 
 </resources>

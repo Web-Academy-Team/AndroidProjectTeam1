@@ -28,12 +28,12 @@
         android:id="@+id/yourName"
         android:layout_below="@+id/hi"
         android:layout_centerHorizontal="true"/>
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/inputName"
         android:id="@+id/inputName"
-        android:hint="@string/yourNameHint"
+        android:text="@string/yourNameHint"
         android:textColorHint="@color/inputNameHint"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"

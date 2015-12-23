@@ -17,15 +17,85 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + Variant.TABLE_NAME + " ("
-        + Variant.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-        + Variant.COLUMN_LETTER + " TEXT NOT NULL,"
-        + Variant.COLUMN_IMAGE + " INTEGER NOT NULL,"
-        + Variant.COLUMN_COUNT + " INTEGER NOT NULL);");
+                + Variant.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + Variant.COLUMN_LETTER + " TEXT NOT NULL,"
+                + Variant.COLUMN_IMAGE + " INTEGER NOT NULL,"
+                + Variant.COLUMN_COUNT + " INTEGER NOT NULL);");
+
+        db.execSQL("INSERT INTO " + Variant.TABLE_NAME + " ("
+                        + Variant.COLUMN_LETTER + ", "
+                        + Variant.COLUMN_IMAGE + ", "
+                        + Variant.COLUMN_COUNT + ") " +
+                        "VALUES " +
+                        "('A', " + String.valueOf(R.drawable.pineapple) + ", 0), " +
+                        "('A', " + String.valueOf(R.drawable.apricot) + ", 0), " +
+                        "('B', " + String.valueOf(R.drawable.squirrel) + ", 0), " +
+                        "('B', " + String.valueOf(R.drawable.botinki) + ", 0), " +
+                        "('V', " + String.valueOf(R.drawable.vorota) + ", 0), " +
+                        "('V', " + String.valueOf(R.drawable.vilka) + ", 0), " +
+                        "('G', " + String.valueOf(R.drawable.grusha) + ", 0), " +
+                        "('G', " + String.valueOf(R.drawable.galstuk) + ", 0), " +
+                        "('D', " + String.valueOf(R.drawable.drova) + ", 0), " +
+                        "('D', " + String.valueOf(R.drawable.dyatel) + ", 0), " +
+                        "('E', " + String.valueOf(R.drawable.elka) + ", 0), " +
+                        "('E', " + String.valueOf(R.drawable.esch) + ", 0), " +
+                        "('Ey', " + String.valueOf(R.drawable.esch) + ", 0), " +
+                        "('Ey', " + String.valueOf(R.drawable.elka) + ", 0), " +
+                        "('Zh', " + String.valueOf(R.drawable.zhuk) + ", 0), " +
+                        "('Zh', " + String.valueOf(R.drawable.zhemchug) + ", 0), " +
+                        "('Z', " + String.valueOf(R.drawable.zebra) + ", 0), " +
+                        "('Z', " + String.valueOf(R.drawable.zont) + ", 0), " +
+                        "('I', " + String.valueOf(R.drawable.ikra) + ", 0), " +
+                        "('I', " + String.valueOf(R.drawable.izum) + ", 0), " +
+                        "('Iy', " + String.valueOf(R.drawable.yogurt) + ", 0), " +
+                        "('Iy', " + String.valueOf(R.drawable.yod) + ", 0), " +
+                        "('K', " + String.valueOf(R.drawable.kastrula) + ", 0), " +
+                        "('K', " + String.valueOf(R.drawable.kolokol) + ", 0), " +
+                        "('L', " + String.valueOf(R.drawable.lime) + ", 0), " +
+                        "('L', " + String.valueOf(R.drawable.lodka) + ", 0), " +
+                        "('M', " + String.valueOf(R.drawable.mylo) + ", 0), " +
+                        "('M', " + String.valueOf(R.drawable.auto) + ", 0), " +
+                        "('N', " + String.valueOf(R.drawable.noschnizy) + ", 0), " +
+                        "('N', " + String.valueOf(R.drawable.nebo) + ", 0), " +
+                        "('O', " + String.valueOf(R.drawable.ogurez) + ", 0), " +
+                        "('O', " + String.valueOf(R.drawable.window) + ", 0), " +
+                        "('P', " + String.valueOf(R.drawable.peper) + ", 0), " +
+                        "('P', " + String.valueOf(R.drawable.pylesos) + ", 0), " +
+                        "('R', " + String.valueOf(R.drawable.fish) + ", 0), " +
+                        "('R', " + String.valueOf(R.drawable.raduga) + ", 0), " +
+                        "('S', " + String.valueOf(R.drawable.desk) + ", 0), " +
+                        "('S', " + String.valueOf(R.drawable.slon) + ", 0), " +
+                        "('T', " + String.valueOf(R.drawable.tort) + ", 0), " +
+                        "('T', " + String.valueOf(R.drawable.phone) + ", 0), " +
+                        "('U', " + String.valueOf(R.drawable.utug) + ", 0), " +
+                        "('U', " + String.valueOf(R.drawable.usy) + ", 0), " +
+                        "('F', " + String.valueOf(R.drawable.photo) + ", 0), " +
+                        "('F', " + String.valueOf(R.drawable.fonar) + ", 0), " +
+                        "('H', " + String.valueOf(R.drawable.brot) + ", 0), " +
+                        "('H', " + String.valueOf(R.drawable.kholodilnik) + ", 0), " +
+                        "('C', " + String.valueOf(R.drawable.zvetok) + ", 0), " +
+                        "('C', " + String.valueOf(R.drawable.zep) + ", 0), " +
+                        "('Ch', " + String.valueOf(R.drawable.chesnok) + ", 0), " +
+                        "('Ch', " + String.valueOf(R.drawable.tasse) + ", 0), " +
+                        "('Sh', " + String.valueOf(R.drawable.shishki) + ", 0), " +
+                        "('Sh', " + String.valueOf(R.drawable.shashki) + ", 0), " +
+                        "('Shy', " + String.valueOf(R.drawable.shetka) + ", 0), " +
+                        "('Shy', " + String.valueOf(R.drawable.shenok) + ", 0), " +
+                        "('Zt', " + String.valueOf(R.drawable.zt_button) + ", 200), " +
+                        "('Yy', " + String.valueOf(R.drawable.yy_button) + ", 200), " +
+                        "('Zm', " + String.valueOf(R.drawable.zm_button) + ", 200), " +
+                        "('Ee', " + String.valueOf(R.drawable.ee_button) + ", 200), " +
+                        "('Uy', " + String.valueOf(R.drawable.ula) + ", 0), " +
+                        "('Uy', " + String.valueOf(R.drawable.ubka) + ", 0), " +
+                        "('Ya', " + String.valueOf(R.drawable.apple) + ", 0), " +
+                        "('Ya', " + String.valueOf(R.drawable.yakor) + ", 0)");
 
         db.execSQL("CREATE TABLE " + Character.TABLE_NAME + " ("
                 + Character.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + Character.COLUMN_LETTER_IMAGE + " INTEGER NOT NULL,"
                 + Character.COLUMN_LETTER_BEEP + " INTEGER NOT NULL);");
+
+      //  db.execSQL("INSERT INTO "+Character.COLUMN_LETTER_IMAGE+"VALUES"+R.string.values);
     }
 
     public long insertVariant(Variant variant){
@@ -148,7 +218,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public int setAllVariants(ArrayList<Variant> object) {
-        int idv, cntUp = 0;
+        int idv;
 
         SQLiteDatabase db = getWritableDatabase();
 
@@ -168,13 +238,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 values.put(Variant.COLUMN_IMAGE, object.get(idv).Img);
                 values.put(Variant.COLUMN_COUNT, object.get(idv).Count);
                 String[] args = new String[]{String.valueOf(object.get(idv).id), String.valueOf(object.get(idv).Count)};
-                cntUp = db.update(Variant.TABLE_NAME, values, "_id = ? AND Count != ?", args);
+                db.update(Variant.TABLE_NAME, values, "_id = ? AND Count != ?", args);
             }
             db.setTransactionSuccessful();
         }finally {
             db.endTransaction();
         }
-        Log.d(Activity_1.LOG_TAG, "Update values -" + String.valueOf(cntUp));
         return idv;
     }
 
